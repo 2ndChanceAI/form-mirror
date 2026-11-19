@@ -1,0 +1,25 @@
+{
+  "manifest_version": 3,
+  "name": "Form Mirror",
+  "version": "0.1.0",
+  "description": "Mirrors matching form fields between two open tabs. All data stays in memory on this machine.",
+  "permissions": ["scripting", "tabs"],
+  "host_permissions": ["http://*/*", "https://*/*"],
+  "background": {
+    "service_worker": "src/background.js",
+    "type": "module"
+  },
+  "content_scripts": [
+    {
+      "matches": ["http://*/*", "https://*/*"],
+      "all_frames": true,
+      "match_about_blank": false,
+      "run_at": "document_idle",
+      "js": ["src/schema.js", "src/normalizer.js", "src/content.js"]
+    }
+  ],
+  "action": {
+    "default_popup": "src/popup.html",
+    "default_title": "Form Mirror"
+  }
+}
