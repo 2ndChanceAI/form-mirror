@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <header class="head">
+      <h1>Form Mirror</h1>
+      <p id="status" class="status">No session</p>
+    </header>
+
+    <section class="slots" aria-label="Paired tabs">
+      <div class="slot" id="slot-a">
+        <span class="slot-name">Empty</span>
+        <span class="slot-count" id="count-a"></span>
+      </div>
+      <div class="slot" id="slot-b">
+        <span class="slot-name">Empty</span>
+        <span class="slot-count" id="count-b"></span>
+      </div>
+    </section>
+
+    <button id="add" class="primary">Add this tab</button>
+
+    <section class="shared">
+      <h2 id="shared-head">Fields that will mirror</h2>
+      <ul id="shared-list" class="list">
+        <li class="empty">Pair two tabs to see matched fields.</li>
+      </ul>
+    </section>
+
+    <footer class="foot">
+      <label class="toggle">
+        <input type="checkbox" id="sensitive" />
+        <span>Include Social Security number</span>
+      </label>
+      <button id="end" class="ghost">End session</button>
+      <p class="note">Values are held in memory and cleared when the session ends.</p>
+    </footer>
+
+    <script src="popup.js"></script>
+  </body>
+</html>
